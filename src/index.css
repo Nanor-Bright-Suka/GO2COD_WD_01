@@ -59,5 +59,10 @@
   animation: fadeInScale 4.5s ease-in-out forwards;
 }
 
+/* .toast {
+  max-width: 30px; 
+    width: 100%;
+    height: auto;
+} */
 
 }
