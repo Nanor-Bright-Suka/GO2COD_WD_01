@@ -35,6 +35,9 @@ export type UIContextType = {
     setTask: (value: string) => void
     activeTaskIndex: number | null
     toggleTaskOption: (index: number | null) => void
+    deleteTask: (index: number) => void
+    updateTask: (index: number,newName: string ) => void
+
 }
   
 //Creating Profile
