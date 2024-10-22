@@ -19,7 +19,7 @@ const WelcomPage: React.FC = () => {
       setTimeout(() => {
         setLoading(false);
         navigate('/homepage', { state: { User: userProfileResults } }); // Pass user data to homepage
-      }, 4000); // 2 seconds delay before switching pages
+      }, 2000); // 2 seconds delay before switching pages
     } else {
       alert('Please enter your name first!');
     }

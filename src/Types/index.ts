@@ -15,6 +15,8 @@ export type InputProps = {
     setUserProfileResults?: React.Dispatch<React.SetStateAction<UserProps | null>>
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
     value?: string
+    setFilteredTasks?:  React.Dispatch<React.SetStateAction<UserProps[]>> 
+
   // setUserProfileResults: (user: UserProps | null) => void;
 }
     
@@ -24,8 +26,7 @@ export type UIProviderProps = {
 }
   
 export type UIContextType = {
-    isSidebarVisible: boolean
-    toggleSidebar: () => void
+   
     toggleAddingTodo: () => void
     isAddingTodo: boolean
     isTasksOptionsVisible: boolean
@@ -33,6 +34,7 @@ export type UIContextType = {
     task:string
     tasks: UserProps[]
     setTask: (value: string) => void
+    // setTasks: (value: UserProps[]) => void
     activeTaskIndex: number | null
     toggleTaskOption: (index: number | null) => void
     deleteTask: (index: number) => void
@@ -49,4 +51,5 @@ export type UserProps = {
     name: string
     date: number | string
     time: number | string
+    // completed: boolean
 }
