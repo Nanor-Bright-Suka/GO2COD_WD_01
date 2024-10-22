@@ -2,6 +2,7 @@ import React, { useContext, useState} from "react"
 import { UIContext } from "../Context/AppContext";
 import TaskOption from "./TaskOption";
 
+
 interface TaskItemProps {
   handleCompletedTask: (completed: number, total: number) => void;
 }
@@ -12,6 +13,16 @@ const TaskItem: React.FC<TaskItemProps> = ({handleCompletedTask}) => {
   const [isEditing, setIsEditing] = useState<number | null>(null);  // State to manage editing mode
   const [editedTask, setEditedTask] = useState(""); // State for the edited task
   const [completedTasks, setCompletedTasks] = useState<boolean[]>(tasks.map(() => false)); // Track completed tasks
+
+
+
+const TaskItem: React.FC = () => {
+  const { toggleTaskOption, tasks, activeTaskIndex,updateTask } = useContext(UIContext)!;
+  
+  const [isEditing, setIsEditing] = useState<number | null>(null);  // State to manage editing mode
+  const [editedTask, setEditedTask] = useState(""); // State for the edited task
+
+
  
     // Handle when the user clicks the edit button in TaskOption
   const handleEditClick = (taskName: string, index: number) => {
@@ -29,6 +40,7 @@ const TaskItem: React.FC<TaskItemProps> = ({handleCompletedTask}) => {
   };
 
 
+
     // Handle toggling the checkbox (task completion)
     const handleToggleComplete = (index: number) => {
       const updatedCompletedTasks = [...completedTasks];
@@ -42,6 +54,7 @@ const completedCount = updatedCompletedTasks.filter((task) => task).length;
 // Call the parent function to update the task completion status
 handleCompletedTask(completedCount, tasks.length);
   };
+
 
     return (
         
@@ -58,9 +71,13 @@ handleCompletedTask(completedCount, tasks.length);
                 />
               )  : (
 
+
                   <h5 className={`mt-5 bg-slate-300 p-2 rounded ${
                     completedTasks[index] ? "line-through opacity-50" : ""
                   }`} >{task.name || "Learn"}</h5>
+
+                  <h5>{task.name || "Learn"}</h5>
+
               )
                 }
                 <svg
@@ -88,16 +105,19 @@ handleCompletedTask(completedCount, tasks.length);
               )}
               
               <div className="flex justify-between py-2">
+
                 <p className={`mt-5 bg-slate-300 p-2 rounded ${
                     completedTasks[index] ? "line-through opacity-50" : ""
                   }`}>{task.time || "12:00pm"}</p>
 
-              
                 <input type="checkbox"
                   className="max-sm:w-[40px] max-sm:h-[25px]"
                   checked={completedTasks[index]}
                   onChange={() => handleToggleComplete(index)}
                 />
+
+                <p>{task.time || "12:00pm"}</p>      
+                <input type="checkbox"   className="max-sm:w-[40px] max-sm:h-[25px]"/>
                 
               </div>
       
