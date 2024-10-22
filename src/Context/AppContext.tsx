@@ -57,7 +57,7 @@ const updateTask = (index: number, newName: string) => {
   
 
     return (
-        <UIContext.Provider value={{deleteTask, isSidebarVisible, toggleSidebar, toggleAddingTodo, isAddingTodo, toggleTaskOption, isTasksOptionsVisible, tasks, task, addTask, setTask, activeTaskIndex, updateTask }}>
+        <UIContext.Provider value={{deleteTask, toggleAddingTodo, isAddingTodo, toggleTaskOption, isTasksOptionsVisible, tasks, task, addTask, setTask,activeTaskIndex,updateTask }}>
             {children}
         </UIContext.Provider>
     )
