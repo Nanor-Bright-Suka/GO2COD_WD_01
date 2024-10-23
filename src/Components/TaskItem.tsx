@@ -2,6 +2,7 @@ import React, { useContext, useState} from "react"
 import { UIContext } from "../Context/AppContext";
 import TaskOption from "./TaskOption";
 
+
 interface TaskItemProps {
   handleCompletedTask: (completed: number, total: number) => void;
 }
@@ -12,6 +13,13 @@ const TaskItem: React.FC<TaskItemProps> = ({handleCompletedTask}) => {
   const [isEditing, setIsEditing] = useState<number | null>(null);  // State to manage editing mode
   const [editedTask, setEditedTask] = useState(""); // State for the edited task
   const [completedTasks, setCompletedTasks] = useState<boolean[]>(tasks.map(() => false)); // Track completed tasks
+
+const TaskItem: React.FC = () => {
+  const { toggleTaskOption, tasks, activeTaskIndex,updateTask } = useContext(UIContext)!;
+  
+  const [isEditing, setIsEditing] = useState<number | null>(null);  // State to manage editing mode
+  const [editedTask, setEditedTask] = useState(""); // State for the edited task
+
  
     // Handle when the user clicks the edit button in TaskOption
   const handleEditClick = (taskName: string, index: number) => {
@@ -27,7 +35,6 @@ const TaskItem: React.FC<TaskItemProps> = ({handleCompletedTask}) => {
       setIsEditing(null);  // Exit editing mode
     }
   };
-
 
     // Handle toggling the checkbox (task completion)
     const handleToggleComplete = (index: number) => {
@@ -61,6 +68,7 @@ handleCompletedTask(completedCount, tasks.length);
                   <h5 className={`mt-5 bg-slate-300 p-2 rounded md:text-3xl ${
                     completedTasks[index] ? "line-through opacity-50" : ""
                   }`} >{task.name || "Learn"}</h5>
+                
               )
                 }
                 <svg
@@ -91,8 +99,6 @@ handleCompletedTask(completedCount, tasks.length);
                 <p className={`mt-5 bg-slate-300 p-2 max-md:text-2xl rounded ${
                     completedTasks[index] ? "line-through opacity-50" : ""
                   }`}>{task.time || "12:00pm"}</p>
-
-              
                 <input type="checkbox"
                   className="max-sm:w-[40px] max-sm:h-[25px] max-md:w-[50px] max-md:h-[30px] max-lg:w-[50px] max-lg:h-[30px] lg:w-[50px] lg:h-[30px]"
                   checked={completedTasks[index]}
