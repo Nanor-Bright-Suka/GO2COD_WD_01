@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
                 <p className="text-center max-sm:text-sm max-md:text-2xl max-lg:text-2xl lg:text-2xl">{date}</p>
                 <p className="text-right max-sm:text-sm max-md:text-xl max-lg:text-xl lg:text-xl">{time}</p>
             </div>
-            
+           
             <div className="flex justify-center items-center border-[1px] border-neutral-300 mt-20">
                 <InputField placeholder="Search Item" className="max-sm:w-[100%] max-md:w-[100%] max-md:h-[68px] max-md:text-3xl max-lg:w-[100%] max-lg:h-[68px] max-lg:text-2xl lg:w-[100%] lg:h-[68px] lg:text-2xl" setFilteredTasks={setFilteredTasks} />
                   <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" className="max-sm:w-[63px] max-sm:h-[65px] bg-[#5EC9E7] max-md:w-[70px] max-md:h-[70px] max-lg:w-[70px] max-lg:h-[70px] lg:w-[70px] lg:h-[70px]">
@@ -76,19 +76,23 @@ const HomePage: React.FC = () => {
             {filteredTasks.length > 0 ? (
         filteredTasks.map((task, index) => (
           <div key={index} className="mt-5 bg-slate-300 p-2 rounded">
+
                 <h5 className="max-md:text-3xl max-lg:text-2xl lg:text-2xl">{task.name}</h5>
                 <div className="flex justify-between">  
                 <p className="max-md:text-xl mt-4 max-lg:text-xl lg:text-xl">{task.time}</p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" className="max-sm:w-[50px] max-sm:h-[50px] max-md:w-[50px] max-md:h-[50px] max-lg:w-[50px] max-lg:h-[50px] lg:w-[50px] lg:h-[50px]" onClick={() => deleteFilteredTask(index)}><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M31.945 7.624L28.84 4.5h-9.68l-3.105 3.124H8.872v4.647h30.256V7.624zm-19.9 4.647h23.95v28.124A3.106 3.106 0 0 1 32.89 43.5H15.15a3.106 3.106 0 0 1-3.105-3.105zM24 17.886v20m6-20v20m-12-20v20"></path></svg>
+
                     </div>
           </div>
         ))
       ) : (
         <p></p>
+
               )}
              
               <div className="flex justify-between items-center rounded-md max-md:mt-16 max-lg:mt-16 lg:mt-16">
             <h4 className="text-xl max-md:text-3xl max-md:pl-10 max-lg:text-3xl max-lg:pl-10 lg:text-3xl lg:pl-10">Task Completion Status:</h4>
+
                   <TaskStatus completedTasksNo={completedTasksNo} totalTasksNo={totalTasksNo} />  
             </div>
             <hr className="bg-slate-300 w-full border-2 m-5"/>
