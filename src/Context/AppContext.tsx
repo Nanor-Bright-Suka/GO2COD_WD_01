@@ -7,10 +7,7 @@ export const UIContext = createContext<UIContextType | undefined>(undefined)
 
 export const UIProvider: React.FC<UIProviderProps> = ({ children }) => {
 
-    const [isSidebarVisible, setIsSidebarVisible] = React.useState(false)
-    const toggleSidebar = () => {
-        setIsSidebarVisible((prev) => !prev);
-    };
+  
 
     //Toggle Adding Todo's functionality
     const [isAddingTodo, setIsAddingTodo] = React.useState(false)
@@ -41,7 +38,6 @@ export const UIProvider: React.FC<UIProviderProps> = ({ children }) => {
     const deleteTask = (index: number) => {
         if (index !== null) {
             setTasks((prevTasks) => {
-                const taskToDelete = prevTasks[index].name; // Assuming each task property
                 return prevTasks.filter((_, i) => i !== index);
             });
         }
