@@ -48,17 +48,17 @@ handleCompletedTask(completedCount, tasks.length);
         <>
         {tasks && tasks.length > 0 ? (
           tasks.map((task, index) => (
-            <div key={index} className="mt-5 bg-slate-300 p-2 rounded">
+            <div key={index} className="mt-5 bg-slate-300 p-2 rounded cursor-pointer">
               <div className="flex justify-between relative">
                 {isEditing === index ? (
                 <input
                   value={editedTask}
                   onChange={(e) => setEditedTask(e.target.value)}
-                  className="border p-1 max-sm:w-[80%] border-1 border-black"
+                  className="border p-1 max-sm:w-[80%] border-1 border-black max-md:w-[80%] max-md:h-[60px] md:text-3xl max-lg:w-[80%] max-lg:h-[60px]"
                 />
               )  : (
 
-                  <h5 className={`mt-5 bg-slate-300 p-2 rounded ${
+                  <h5 className={`mt-5 bg-slate-300 p-2 rounded md:text-3xl ${
                     completedTasks[index] ? "line-through opacity-50" : ""
                   }`} >{task.name || "Learn"}</h5>
               )
@@ -68,7 +68,7 @@ handleCompletedTask(completedCount, tasks.length);
                   width="1em"
                   height="1em"
                   viewBox="0 0 24 24"
-                  className="max-sm:w-[40px] max-sm:h-[25px]"
+                  className="max-sm:w-[40px] max-sm:h-[25px] max-md:w-[50px] max-md:h-[40px] max-lg:w-[50px] max-lg:h-[40px] lg:w-[50px] lg:h-[40px]"
                   onClick={() => toggleTaskOption(index)}
 
                 >
@@ -82,19 +82,19 @@ handleCompletedTask(completedCount, tasks.length);
               </div>
 
               {isEditing === index && (
-              <button onClick={() => handleSaveTask(index)} className="bg-blue-500 p-1 text-white">
+              <button onClick={() => handleSaveTask(index)} className="bg-blue-500 p-1 text-white max-md:text-2xl">
                 Save Task
               </button>
               )}
               
               <div className="flex justify-between py-2">
-                <p className={`mt-5 bg-slate-300 p-2 rounded ${
+                <p className={`mt-5 bg-slate-300 p-2 max-md:text-2xl rounded ${
                     completedTasks[index] ? "line-through opacity-50" : ""
                   }`}>{task.time || "12:00pm"}</p>
 
               
                 <input type="checkbox"
-                  className="max-sm:w-[40px] max-sm:h-[25px]"
+                  className="max-sm:w-[40px] max-sm:h-[25px] max-md:w-[50px] max-md:h-[30px] max-lg:w-[50px] max-lg:h-[30px] lg:w-[50px] lg:h-[30px]"
                   checked={completedTasks[index]}
                   onChange={() => handleToggleComplete(index)}
                 />
@@ -104,7 +104,7 @@ handleCompletedTask(completedCount, tasks.length);
             </div>
           ))
         ) : (
-          <p className= "text-2xl text-center">No tasks available</p>
+          <p className= "text-2xl text-center cursor-pointer">No tasks available</p>
         )}
       </>
     );
