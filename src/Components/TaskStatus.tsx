@@ -12,7 +12,10 @@ const TaskStatus: React.FC<TaskStatusProps> = ({ completedTasksNo, totalTasksNo 
    const percentage = totalTasksNo === 0 ? 0 : Math.round((completedTasksNo / totalTasksNo) * 100);
 
       return (
-        <CircularProgressbar value={percentage} text={`${percentage}%`} styles={{
+        <CircularProgressbar
+          value={percentage}
+          text={`${percentage}%`}
+          styles={{
           path: { stroke: `#4caf50` },
               text: { fill: '#4caf50',fontSize: "30px" },
          

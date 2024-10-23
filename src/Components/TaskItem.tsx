@@ -1,27 +1,19 @@
-import React, { useContext, useState} from "react"
+import React, { useContext, useState } from "react";
 import { UIContext } from "../Context/AppContext";
 import TaskOption from "./TaskOption";
-
 
 interface TaskItemProps {
   handleCompletedTask: (completed: number, total: number) => void;
 }
 
-const TaskItem: React.FC<TaskItemProps> = ({handleCompletedTask}) => {
+const TaskItem: React.FC<TaskItemProps> = ({ handleCompletedTask }) => {
   const { toggleTaskOption, tasks, activeTaskIndex, updateTask } = useContext(UIContext)!;
   
   const [isEditing, setIsEditing] = useState<number | null>(null);  // State to manage editing mode
   const [editedTask, setEditedTask] = useState(""); // State for the edited task
   const [completedTasks, setCompletedTasks] = useState<boolean[]>(tasks.map(() => false)); // Track completed tasks
 
-const TaskItem: React.FC = () => {
-  const { toggleTaskOption, tasks, activeTaskIndex,updateTask } = useContext(UIContext)!;
-  
-  const [isEditing, setIsEditing] = useState<number | null>(null);  // State to manage editing mode
-  const [editedTask, setEditedTask] = useState(""); // State for the edited task
 
- 
-    // Handle when the user clicks the edit button in TaskOption
   const handleEditClick = (taskName: string, index: number) => {
     setIsEditing(index); // Set the task being edited
     setEditedTask(taskName); // Set the initial value of the task being edited
@@ -58,6 +50,7 @@ handleCompletedTask(completedCount, tasks.length);
             <div key={index} className="mt-5 bg-slate-300 p-2 rounded cursor-pointer">
               <div className="flex justify-between relative">
                 {isEditing === index ? (
+  
                 <input
                   value={editedTask}
                   onChange={(e) => setEditedTask(e.target.value)}
