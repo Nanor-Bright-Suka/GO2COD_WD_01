@@ -24,7 +24,7 @@ export const CreateUserProfile = ({value}: CreateUserProfileProp): UserProps | n
 //The Date
 const date = new Date();
  const getFormattedDate = () => {
-  const day = format(date, 'd');
+  const day = parseInt(format(date, 'd'));
   const month = format(date, 'MMMM');
   const year = format(date, 'yyyy');
 
