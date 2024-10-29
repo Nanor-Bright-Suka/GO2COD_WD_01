@@ -16,7 +16,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ handleCompletedTask }) => {
 
   const handleEditClick = (taskName: string, index: number) => {
     setIsEditing(index); // Set the task being edited
-    setEditedTask(taskName); // Set the initial value of the task being edited
+    setEditedTask(taskName || ""); // Set the initial value of the task being edited
     toggleTaskOption(null); // Close the TaskOption menu
   };
 
