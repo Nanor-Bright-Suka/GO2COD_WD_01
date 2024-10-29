@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://nanor-bright-suka.github.io/GO2COD_WD_01/",
+ 
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+  "deploy": "gh-pages -d build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
@@ -30,6 +31,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
     "gh-pages": "^6.2.0",
+    
     "globals": "^15.9.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
